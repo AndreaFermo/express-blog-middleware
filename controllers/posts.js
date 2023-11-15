@@ -8,7 +8,7 @@ function index(req, res) {
         html: () => {
             html = [];
             html.push("<ul>");
-
+            hhrthrtyhrty
             for (const post of posts) {
                 html.push(`
                 <li>
@@ -58,6 +58,7 @@ function store(req, res) {
             res.redirect("/");
         },
         default: () => {
+
             posts.push({
                 ...req.body,
                 slug: kebabCase(req.body.title),
@@ -158,8 +159,7 @@ function findOrFail(req, res) {
     const post = posts.find((post) => post.slug == postSlug);
 
     if (!post) {
-        res.status(404).send(`Post con slug ${postSlug} non trovato!`);
-        return;
+        throw new Error('Il post non esiste!')
     }
 
     return post;
