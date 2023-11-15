@@ -7,7 +7,6 @@ function index(req, res) {
     res.format({
         html: () => {
             html = [];
-
             html.push("<ul>");
 
             for (const post of posts) {
